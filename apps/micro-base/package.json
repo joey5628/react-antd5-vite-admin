@@ -1,0 +1,22 @@
+{
+    "name": "micro-base",
+    "private": true,
+    "version": "0.0.0",
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "tsc -b && vite build",
+        "lint": "eslint .",
+        "preview": "vite preview"
+    },
+    "devDependencies": {
+        "@types/node": "^22.13.4",
+        "@vitejs/plugin-react": "^4.3.4",
+        "less": "^4.2.2",
+        "vite": "^6.1.0"
+    },
+    "dependencies": {
+        "@ant-design/icons": "^5.6.1",
+        "react-router-dom": "^7.2.0"
+    }
+}

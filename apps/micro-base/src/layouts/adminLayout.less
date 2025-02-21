@@ -1,0 +1,99 @@
+.container {
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100vw;
+    min-width: 960px;
+    height: 100vh;
+
+    .sidebar {
+        width: 200px;
+        height: 100%;
+        overflow: auto;
+
+        .logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 16px;
+            color: #fff;
+            font-size: 1.2rem;
+            text-align: center;
+
+            .logo-text {
+                margin-left: 6px;
+            }
+        }
+
+        .create-area {
+            padding: 0 16px;
+            margin: 12px 0;
+            text-align: center;
+        }
+    }
+
+    > .wrapper {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        height: 100%;
+        background-color: #eff2f5;
+        overflow: auto;
+
+        > header {
+            width: 100%;
+            padding: 14px;
+            border-bottom: 1px solid var(--border-color-base);
+            overflow: hidden;
+            background-color: #fff;
+
+            .user-info {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                cursor: pointer;
+            }
+        }
+
+        > .content {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            overflow: auto;
+
+            > header {
+                position: relative;
+                padding: 8px 16px;
+            }
+
+            > main {
+                flex: 1;
+                padding: 20px;
+            }
+
+            > footer {
+                padding: 20px 0;
+                color: rgba(0, 0, 0, 0.65);
+                text-align: center;
+
+                .github {
+                    display: inline-flex;
+                    flex-wrap: nowrap;
+                    margin: 8px 20px;
+                    font-size: 24px;
+                    border-radius: 50%;
+                    text-align: center;
+
+                    &:hover {
+                        color: var(--heading-color);
+                    }
+                }
+
+                .copyright {
+                    font-size: 10px;
+                    line-height: 15px;
+                }
+            }
+        }
+    }
+}

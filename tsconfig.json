@@ -1,0 +1,44 @@
+{
+    "compilerOptions": {
+        /* 基础配置 */
+        "target": "ESNext", // 编译目标版本
+        "module": "ESNext", // 模块系统
+        "lib": ["DOM", "DOM.Iterable", "ESNext"], // 包含的库类型定义
+        "jsx": "react-jsx", // JSX 处理方式 (React 17+)
+        "moduleResolution": "bundler", // 模块解析策略
+        "resolveJsonModule": true, // 允许导入 JSON
+        "allowJs": true, // 允许编译 JS 文件
+
+        /* 类型检查 */
+        "strict": true, // 启用所有严格类型检查
+        "noImplicitAny": false, // 允许隐式 any (根据项目需求调整)
+        "skipLibCheck": true, // 跳过声明文件类型检查 (提升编译速度)
+        "forceConsistentCasingInFileNames": true, // 强制文件名大小写一致
+
+        /* 路径映射 */
+        "baseUrl": ".", // 基础目录
+        "paths": {
+            "@/*": ["src/*"], // 路径别名配置
+            "@ant-design/icons/*": ["@ant-design/icons/es/icons/*"] // Ant Design 图标路径
+        },
+
+        /* 输出控制 */
+        "esModuleInterop": true, // 启用 ES 模块互操作性
+        "isolatedModules": true, // 确保安全编译独立模块
+        "allowSyntheticDefaultImports": true, // 允许从无默认导出的模块默认导入
+
+        /* 实验性特性 */
+        "experimentalDecorators": true, // 启用装饰器
+        "useDefineForClassFields": true, // 使用现代类字段定义方式
+
+        /* 类型声明 */
+        "types": ["@types/react", "@types/react-dom", "antd"], // 包含全局类型声明
+        "typeRoots": ["./node_modules/@types", "./typings"] // 类型声明文件位置
+    },
+
+    /* 包含文件范围 */
+    "include": ["src/**/*", "mock/**/*", "config/**/*", ".umirc.ts", "typings/**/*", "global.d.ts"],
+
+    /* 排除文件 */
+    "exclude": ["node_modules", "dist", "**/*.spec.ts", "**/*.test.ts", "**/*.stories.tsx"]
+}
