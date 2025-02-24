@@ -46,6 +46,12 @@ export const items: Items[] = [
         title: <HomeOutlined />,
     },
     {
+        key: '/react-app',
+        icon: <UserOutlined />,
+        label: <Link to="/react-app">react-app</Link>,
+        title: 'react-app',
+    },
+    {
         key: '/data',
         icon: <FormOutlined />,
         label: '数据管理',

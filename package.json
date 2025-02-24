@@ -8,7 +8,7 @@
         "start": "npm-run-all --parallel start:*",
         "start1": "pnpm run -r --filter=./apps/{micro-base,web-demo} start",
         "start2": "concurrently \"pnpm run start:base\" \"pnpm run start:demo\"",
-        "start:umi": "pnpm --filter umi-app -- start",
+        "start:app1": "pnpm --filter react-app -- start",
         "start:base": "pnpm --filter=./apps/micro-base start",
         "build": "pnpm -r --filter=./apps/* run build"
     },
@@ -17,8 +17,10 @@
     "license": "ISC",
     "devDependencies": {
         "@eslint/js": "^9.20.0",
+        "@types/node": "^22.13.4",
         "@types/react": "^19.0.10",
         "@types/react-dom": "^19.0.4",
+        "@vitejs/plugin-react": "^4.3.4",
         "eslint": "^9.20.1",
         "eslint-config-prettier": "^10.0.1",
         "eslint-plugin-jsx-a11y": "^6.10.2",
@@ -29,7 +31,8 @@
         "npm-run-all": "^4.1.5",
         "prettier": "^3.5.1",
         "typescript": "^5.7.3",
-        "typescript-eslint": "^8.24.1"
+        "typescript-eslint": "^8.24.1",
+        "vite": "^6.1.0"
     },
     "dependencies": {
         "antd": "^5.24.1",

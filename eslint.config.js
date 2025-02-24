@@ -24,9 +24,10 @@ export default tseslint.config(
         rules: {
             ...reactHooks.configs.recommended.rules,
             'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
-            'no-console': 'error',
+            'no-console': 'off',
             '@typescript-eslint/no-require-imports': 'warn',
             '@typescript-eslint/no-explicit-any': 'warn',
+            '@typescript-eslint/ban-ts-comment': 'off',
         },
     }
 );
