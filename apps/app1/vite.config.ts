@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 import { resolve } from 'path';
 import react from '@vitejs/plugin-react';
+import reactRefresh from '@vitejs/plugin-react-refresh';
 import qiankun from 'vite-plugin-qiankun';
 
 // https://vite.dev/config/
@@ -26,6 +27,7 @@ export default defineConfig(({ mode }) => {
         },
         plugins: [
             react(),
+            ...(isDev ? [] : [reactRefresh()]),
             qiankun('app1', {
                 useDevMode: true, // 开发环境开启热更新
             }),

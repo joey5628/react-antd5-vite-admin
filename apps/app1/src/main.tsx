@@ -67,6 +67,6 @@ renderWithQiankun({
 
 // 判断当前应用是否在主应用中
 // @ts-ignore
-if (!window.__POWERED_BY_QIANKUN__) {
+if (!qiankunWindow.__POWERED_BY_QIANKUN__) {
     render();
 }
