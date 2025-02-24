@@ -5,7 +5,12 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "start": "npm-run-all --parallel start:*",
+        "start1": "pnpm run -r --filter=./apps/{micro-base,web-demo} start",
+        "start2": "concurrently \"pnpm run start:base\" \"pnpm run start:demo\"",
+        "start:umi": "pnpm --filter umi-app -- start",
+        "start:base": "pnpm --filter=./apps/micro-base start",
+        "build": "pnpm -r --filter=./apps/* run build"
     },
     "keywords": [],
     "author": "",

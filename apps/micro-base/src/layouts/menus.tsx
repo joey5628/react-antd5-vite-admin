@@ -5,10 +5,6 @@ import {
     FormOutlined,
     CopyOutlined,
     TagsOutlined,
-    CommentOutlined,
-    FolderOpenOutlined,
-    MailOutlined,
-    BarChartOutlined,
     UserOutlined,
     SettingOutlined,
     HomeOutlined,
@@ -50,53 +46,23 @@ export const items: Items[] = [
         title: <HomeOutlined />,
     },
     {
-        key: 'article',
+        key: '/data',
         icon: <FormOutlined />,
-        label: '文章管理',
+        label: '数据管理',
         children: [
             {
-                key: '/article',
-                icon: <FormOutlined />,
-                label: <Link to="/article">所有文章</Link>,
-                title: '所有文章',
-            },
-            {
-                key: '/article/category',
+                key: '/data/category',
                 icon: <CopyOutlined />,
                 label: <Link to="/article/category">分类管理</Link>,
                 title: '分类管理',
             },
             {
-                key: '/article/tag',
+                key: '/data/tag',
                 icon: <TagsOutlined />,
                 label: <Link to="/article/tag">标签管理</Link>,
                 title: '标签管理',
             },
         ],
-    },
-    {
-        key: '/comment',
-        icon: <CommentOutlined />,
-        label: <Link to="/comment">评论管理</Link>,
-        title: '评论管理',
-    },
-    {
-        key: '/file',
-        icon: <FolderOpenOutlined />,
-        label: <Link to="/file">文件管理</Link>,
-        title: '文件管理',
-    },
-    {
-        key: '/mail',
-        icon: <MailOutlined />,
-        label: <Link to="/mail">邮件管理</Link>,
-        title: '邮件管理',
-    },
-    {
-        key: '/view',
-        icon: <BarChartOutlined />,
-        label: <Link to="/view">访问统计</Link>,
-        title: '访问统计',
     },
     {
         key: '/user',
@@ -127,7 +93,7 @@ export const menus: Menus[] = items.map((item) => {
     return newItem as Menu;
 });
 
-const flattenMenus = items.reduce((i, menu) => {
+const flattenMenus = items.reduce((i: any, menu: any): any => {
     return [
         ...i,
         {

@@ -1,9 +1,9 @@
-import React, { FunctionComponent, useState } from 'react';
-import { Outlet, Link, useLocation } from 'react-router-dom';
-import { Layout, Menu, Avatar, Row, Col, Breadcrumb } from 'antd';
+import { FunctionComponent, useState } from 'react';
+import { Outlet, useLocation } from 'react-router-dom';
+// import { Layout, Menu, Avatar, Row, Col, Breadcrumb } from 'antd';
+import { Layout, Menu, Avatar, Row, Col } from 'antd';
 import {
     UserOutlined,
-    PlusOutlined,
     MenuFoldOutlined,
     MenuUnfoldOutlined,
     GithubOutlined,
@@ -17,25 +17,15 @@ const { Sider, Content } = Layout;
 const AdminLayout: FunctionComponent = () => {
     const [collapsed, toggleCollapse] = useState(true);
     const { pathname } = useLocation();
-    const [activeMenu, breadcrumbs] = findActiveMenu(pathname);
+    // const [activeMenu, breadcrumbs] = findActiveMenu(pathname);
+    const [activeMenu] = findActiveMenu(pathname);
 
     return (
         <Layout className="container">
-            <Sider className="sidebar" collapsed={true}>
+            <Sider className="sidebar" collapsed={false}>
                 <div className="logo">
                     <Avatar src={'../assets/react.svg'} icon={<UserOutlined />} size="large" />
                     {!collapsed && <span className="logo-text">管理后台</span>}
-                </div>
-                <div className="create-area">
-                    {!collapsed && (
-                        <Link
-                            to={'/article/editor'}
-                            className="ant-btn ant-btn-primary ant-btn-lg ant-btn-block"
-                        >
-                            <PlusOutlined />
-                            <span>新建文章</span>
-                        </Link>
-                    )}
                 </div>
                 <Menu
                     defaultSelectedKeys={[activeMenu && activeMenu.key]}
