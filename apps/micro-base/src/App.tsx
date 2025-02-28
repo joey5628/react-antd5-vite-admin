@@ -5,6 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 const App: React.FC = () => (
     <ConfigProvider
+        wave={{ disabled: false }}
         theme={{
             token: {
                 // // Seed Token，影响范围大

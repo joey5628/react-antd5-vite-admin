@@ -1,22 +1,31 @@
+import '@ant-design/v5-patch-for-react-19';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import './index.css';
+// import 'antd/dist/reset.css';
+// import './index.css';
 import App from './App.tsx';
-import { registerMicroApps, start } from 'qiankun';
+import microApp from '@micro-zoe/micro-app';
 
-registerMicroApps([
-    {
-        name: 'react-app', // 与子应用名称一致
-        entry: '//localhost:8001', // 子应用启动地址
-        container: '#microAppContainer', // 子应用挂载容器
-        activeRule: '/react-app', // 激活路由规则
-        props: {
-            msg: '我是来自主应用的值-react',
+microApp.start({
+    // 'router-mode': 'native',
+    lifeCycles: {
+        created() {
+            console.log('created 全局监听');
+        },
+        beforemount() {
+            console.log('beforemount 全局监听');
+        },
+        mounted() {
+            console.log('mounted 全局监听');
+        },
+        unmount() {
+            console.log('unmount 全局监听');
+        },
+        error() {
+            console.log('error 全局监听');
         },
     },
-]);
-
-start();
+});
 
 createRoot(document.getElementById('baseRoot')!).render(
     <StrictMode>

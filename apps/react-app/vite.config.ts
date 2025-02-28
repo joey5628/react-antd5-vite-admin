@@ -9,9 +9,12 @@ export default defineConfig(({ mode }) => {
     const isDev = mode === 'development';
     console.log('isDev----:', isDev);
     return {
-        base: isDev ? '/' : 'http://localhost:8001', // 生产环境需指定子应用路径
+        base: isDev ? '/' : 'http://localhost:3101', // 生产环境需指定子应用路径
         server: {
-            port: 8001,
+            port: 3101,
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+            },
         },
         build: {
             rollupOptions: {
