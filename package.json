@@ -10,7 +10,9 @@
         "start2": "concurrently \"pnpm run start:base\" \"pnpm run start:demo\"",
         "start:app1": "pnpm --filter react-app -- start",
         "start:base": "pnpm --filter=./apps/micro-base start",
-        "build": "pnpm -r --filter=./apps/* run build"
+        "build": "pnpm -r --filter=./apps/* run build",
+        "build:base": "pnpm -r --filter=./apps/micro-base* run build",
+        "build:react": "pnpm -r --filter=./apps/react-app* run build"
     },
     "keywords": [],
     "author": "",
