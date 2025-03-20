@@ -1,17 +1,17 @@
-import { defineConfig } from 'vite';
+import { defineConfig, loadEnv } from 'vite';
 import { resolve } from 'path';
 import react from '@vitejs/plugin-react';
-import reactRefresh from '@vitejs/plugin-react-refresh';
-import qiankun from 'vite-plugin-qiankun';
 
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => {
     const isDev = mode === 'development';
-    console.log('isDev----:', isDev);
+    const env = loadEnv(mode, process.cwd(), ['VITE_', 'LOOP_']);
+    const port = Number(env.LOOP_PORT);
+
     return {
         base: isDev ? '/' : 'http://localhost:3101', // 生产环境需指定子应用路径
         server: {
-            port: 3101,
+            port,
             headers: {
                 'Access-Control-Allow-Origin': '*',
             },
@@ -28,13 +28,7 @@ export default defineConfig(({ mode }) => {
                 },
             },
         },
-        plugins: [
-            react(),
-            ...(isDev ? [] : [reactRefresh()]),
-            qiankun('app1', {
-                useDevMode: true, // 开发环境开启热更新
-            }),
-        ],
+        plugins: [react()],
         resolve: {
             alias: {
                 '@': `${resolve(process.cwd(), 'src')}`,
