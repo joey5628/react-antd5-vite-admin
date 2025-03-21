@@ -1,60 +1,32 @@
-import { useState } from 'react';
-import { Button, Modal, Flex } from 'antd';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
-// import './App.css';
+import { ConfigProvider } from 'antd';
+import dayjs from 'dayjs';
+import React from 'react';
+// import Router from '@/router/router';
+// import { BrowserRouter } from 'react-router-dom';
+import 'dayjs/locale/zh-cn';
+import zhCN from 'antd/locale/zh_CN';
 
-function App() {
-    const [count, setCount] = useState(0);
-    const [isModalOpen, setIsModalOpen] = useState(false);
+dayjs.locale('zh-cn');
 
-    const showModal = () => {
-        setIsModalOpen(true);
-    };
-
-    const handleOk = () => {
-        setIsModalOpen(false);
-    };
-
-    const handleCancel = () => {
-        setIsModalOpen(false);
-    };
-
-    return (
-        <>
-            <div>
-                <a href="https://vite.dev" target="_blank">
-                    <img src={viteLogo} className="logo" alt="Vite logo" />
-                </a>
-                <a href="https://react.dev" target="_blank">
-                    <img src={reactLogo} className="logo react" alt="React logo" />
-                </a>
-            </div>
-            <h1>Vite + React</h1>
-            <h2>Joey</h2>
-            <div className="card">
-                <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-                <p>
-                    Edit <code>src/App.tsx</code> and save to test HMR
-                </p>
-            </div>
-            <Flex gap="small" wrap>
-                <Button type="primary">Primary Button</Button>
-                <Button>Default Button</Button>
-                <Button type="dashed">Dashed Button</Button>
-                <Button type="text">Text Button</Button>
-                <Button type="link">Link Button</Button>
-            </Flex>
-            <Button type="primary" onClick={showModal}>
-                Open Modal
-            </Button>
-            <Modal title="Basic Modal" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
-                <p>Some contents...</p>
-                <p>Some contents...</p>
-                <p>Some contents...</p>
-            </Modal>
-        </>
-    );
-}
+const App: React.FC = () => (
+    <ConfigProvider
+        locale={zhCN}
+        wave={{ disabled: false }}
+        theme={{
+            token: {
+                // // Seed Token，影响范围大
+                // colorPrimary: '#00b96b',
+                // borderRadius: 2,
+                // // 派生变量，影响范围小
+                // colorBgContainer: '#f6ffed',
+            },
+        }}
+    >
+        {/* <BrowserRouter>
+            <Router />
+        </BrowserRouter> */}
+        <h2>子应用React App</h2>
+    </ConfigProvider>
+);
 
 export default App;

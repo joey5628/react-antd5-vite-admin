@@ -1,10 +1,16 @@
 import { ConfigProvider } from 'antd';
+import dayjs from 'dayjs';
 import React from 'react';
-import Router from '@/router/router';
-import { BrowserRouter } from 'react-router-dom';
+import { RouterProvider } from 'react-router-dom';
+import router from './router/router';
+import 'dayjs/locale/zh-cn';
+import zhCN from 'antd/locale/zh_CN';
+
+dayjs.locale('zh-cn');
 
 const App: React.FC = () => (
     <ConfigProvider
+        locale={zhCN}
         wave={{ disabled: false }}
         theme={{
             token: {
@@ -16,9 +22,7 @@ const App: React.FC = () => (
             },
         }}
     >
-        <BrowserRouter>
-            <Router />
-        </BrowserRouter>
+        <RouterProvider router={router} />
     </ConfigProvider>
 );
 

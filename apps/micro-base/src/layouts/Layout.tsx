@@ -1,21 +1,15 @@
 import { FunctionComponent, useState } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
-// import { Layout, Menu, Avatar, Row, Col, Breadcrumb } from 'antd';
-import { Layout, Menu, Avatar, Row, Col } from 'antd';
-import {
-    UserOutlined,
-    MenuFoldOutlined,
-    MenuUnfoldOutlined,
-    GithubOutlined,
-    CopyrightOutlined,
-} from '@ant-design/icons';
+import { Layout, Menu, Avatar, Row, Col, Breadcrumb } from 'antd';
+import { UserOutlined, GithubOutlined, CopyrightOutlined } from '@ant-design/icons';
+import Header from './components/Header';
 import { menus, findActiveMenu } from './menus';
-import './adminLayout.less';
+import './Layout.less';
 
 const { Sider, Content } = Layout;
 
 const AdminLayout: FunctionComponent = () => {
-    const [collapsed, toggleCollapse] = useState(true);
+    // const [collapsed, toggleCollapse] = useState(true);
     const { pathname } = useLocation();
     // const [activeMenu, breadcrumbs] = findActiveMenu(pathname);
     const [activeMenu] = findActiveMenu(pathname);
@@ -25,7 +19,7 @@ const AdminLayout: FunctionComponent = () => {
             <Sider className="sidebar" collapsed={false}>
                 <div className="logo">
                     <Avatar src={'../assets/react.svg'} icon={<UserOutlined />} size="large" />
-                    {!collapsed && <span className="logo-text">管理后台</span>}
+                    <span className="logo-text">管理后台</span>
                 </div>
                 <Menu
                     defaultSelectedKeys={[activeMenu && activeMenu.key]}
@@ -37,18 +31,7 @@ const AdminLayout: FunctionComponent = () => {
             </Sider>
             <Layout className="wrapper">
                 <header>
-                    <Row>
-                        <Col span={12}>
-                            {collapsed ? (
-                                <MenuUnfoldOutlined onClick={() => toggleCollapse(!collapsed)} />
-                            ) : (
-                                <MenuFoldOutlined onClick={() => toggleCollapse(!collapsed)} />
-                            )}
-                        </Col>
-                        <Col span={12} style={{ textAlign: 'right' }}>
-                            <div className="user-info"></div>
-                        </Col>
-                    </Row>
+                    <Header />
                 </header>
                 <Content className="content">
                     <header>
