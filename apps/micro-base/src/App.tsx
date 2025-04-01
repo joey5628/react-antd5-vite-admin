@@ -5,6 +5,7 @@ import { RouterProvider } from 'react-router-dom';
 import router from './router/router';
 import 'dayjs/locale/zh-cn';
 import zhCN from 'antd/locale/zh_CN';
+// import { GlobalProvider } from '@/layouts/GlobalProvider';
 
 dayjs.locale('zh-cn');
 
@@ -22,7 +23,9 @@ const App: React.FC = () => (
             },
         }}
     >
+        {/* <GlobalProvider> */}
         <RouterProvider router={router} />
+        {/* </GlobalProvider> */}
     </ConfigProvider>
 );
 

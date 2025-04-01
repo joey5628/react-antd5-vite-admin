@@ -4,6 +4,8 @@ import { createRoot } from 'react-dom/client';
 import 'antd/dist/reset.css';
 import App from './App.tsx';
 import microApp from '@micro-zoe/micro-app';
+import './mock';
+import '@/utils/http.ts';
 
 microApp.start({
     // 'router-mode': 'native',
