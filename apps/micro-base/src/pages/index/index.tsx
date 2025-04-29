@@ -7,7 +7,7 @@ const Index = () => {
     return (
         <div>
             <h2>{location.pathname}</h2>
-            <p>测试11</p>
+            <p>测试22222</p>
             <Flex gap="small" wrap>
                 <Button type="primary">Primary Button</Button>
                 <Button>Default Button</Button>

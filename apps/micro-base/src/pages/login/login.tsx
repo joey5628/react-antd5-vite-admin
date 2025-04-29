@@ -33,6 +33,7 @@ const iconStyles: CSSProperties = {
 };
 
 const Login = () => {
+    console.log('login---');
     // const [messageApi, contextHolder] = message.useMessage();
     // const message = useMessage();
     const [loginType, setLoginType] = useState<LoginType>('account');
